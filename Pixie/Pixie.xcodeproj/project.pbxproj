@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2457B409327BA2230C65C29F /* Pods_Pixie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 837C9CD8B773CF214FF151EF /* Pods_Pixie.framework */; };
 		AC35CE34294D35AA0038F6AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC35CE33294D35AA0038F6AC /* AppDelegate.swift */; };
 		AC35CE36294D35AA0038F6AC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC35CE35294D35AA0038F6AC /* SceneDelegate.swift */; };
 		AC35CE38294D35AA0038F6AC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC35CE37294D35AA0038F6AC /* ViewController.swift */; };
@@ -16,6 +17,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1392AC3A34D5123BE140A2AF /* Pods-Pixie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pixie.debug.xcconfig"; path = "Target Support Files/Pods-Pixie/Pods-Pixie.debug.xcconfig"; sourceTree = "<group>"; };
+		837C9CD8B773CF214FF151EF /* Pods_Pixie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pixie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A8AF41113E9B4A3ECAE4C02A /* Pods-Pixie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pixie.release.xcconfig"; path = "Target Support Files/Pods-Pixie/Pods-Pixie.release.xcconfig"; sourceTree = "<group>"; };
 		AC35CE30294D35AA0038F6AC /* Pixie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pixie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC35CE33294D35AA0038F6AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC35CE35294D35AA0038F6AC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -31,17 +35,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2457B409327BA2230C65C29F /* Pods_Pixie.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		29197E587E486EF3DD488DDA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				837C9CD8B773CF214FF151EF /* Pods_Pixie.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7C34A54ED3E265C85E2CFC5F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1392AC3A34D5123BE140A2AF /* Pods-Pixie.debug.xcconfig */,
+				A8AF41113E9B4A3ECAE4C02A /* Pods-Pixie.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		AC35CE27294D35A90038F6AC = {
 			isa = PBXGroup;
 			children = (
 				AC35CE32294D35AA0038F6AC /* Pixie */,
 				AC35CE31294D35AA0038F6AC /* Products */,
+				7C34A54ED3E265C85E2CFC5F /* Pods */,
+				29197E587E486EF3DD488DDA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -74,9 +98,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AC35CE44294D35AB0038F6AC /* Build configuration list for PBXNativeTarget "Pixie" */;
 			buildPhases = (
+				8B731E80603A6FDF8B3D557B /* [CP] Check Pods Manifest.lock */,
 				AC35CE2C294D35AA0038F6AC /* Sources */,
 				AC35CE2D294D35AA0038F6AC /* Frameworks */,
 				AC35CE2E294D35AA0038F6AC /* Resources */,
+				AC35CE4A294D48110038F6AC /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -132,6 +158,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8B731E80603A6FDF8B3D557B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Pixie-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AC35CE4A294D48110038F6AC /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		AC35CE2C294D35AA0038F6AC /* Sources */ = {
@@ -284,6 +352,7 @@
 		};
 		AC35CE45294D35AB0038F6AC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1392AC3A34D5123BE140A2AF /* Pods-Pixie.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -313,6 +382,7 @@
 		};
 		AC35CE46294D35AB0038F6AC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A8AF41113E9B4A3ECAE4C02A /* Pods-Pixie.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
